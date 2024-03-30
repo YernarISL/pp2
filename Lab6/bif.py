@@ -2,7 +2,8 @@ import math
 
 #1
 
-nums = [1, 2, 3, 5, 8, 6, 7]
+inp = input("")
+nums = map(int, inp.split(" "))
 x = math.prod(nums)
 print(x)
 
@@ -38,4 +39,3 @@ if sum(x) == len(x):
     print(True)
 else:
     print(False)
-    
