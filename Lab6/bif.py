@@ -39,3 +39,4 @@ if sum(x) == len(x):
     print(True)
 else:
     print(False)
+
