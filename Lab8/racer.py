@@ -28,7 +28,8 @@ def ring():
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, i):
-        self.image = pygame.image.load('Lab8\\images\\player.png')
+        self.image = pygame.image.load('Lab8\\images\\Player.png')
+        self.image2 = pygame.transform.rotate(self.image, 180)
         self.rect = self.image.get_rect()
         self.rect.move_ip(200, 450)
         self.i = i
