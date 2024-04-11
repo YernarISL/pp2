@@ -13,7 +13,10 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 yellow = (255, 255, 0)
+orange = (255, 165, 0)
+purple = (128, 0, 128)
 gray = (240, 240, 240)
+
 screen = pygame.display.set_mode((1280, 720))
 nav_screen = pygame.Surface((1280, 70))
 work_screen = pygame.Surface((1280, 720))
@@ -50,6 +53,30 @@ class Palette:
         self.green_rect_border.center = self.green_rect.center
         self.green.fill(green)
 
+        self.yellow = pygame.Surface((30, 30))
+        self.yellow_rect = self.yellow.get_rect()
+        self.yellow_rect.topleft = (705, 20)
+        self.yellow_border = pygame.Surface((32, 32))
+        self.yellow_rect_border = self.yellow_border.get_rect()
+        self.yellow_rect_border.center = self.yellow_rect.center
+        self.yellow.fill(yellow)
+
+        self.purple = pygame.Surface((30, 30))
+        self.purple_rect = self.purple.get_rect()
+        self.purple_rect.topleft = (740, 20)
+        self.purple_border = pygame.Surface((32, 32))
+        self.purple_rect_border = self.purple_border.get_rect()
+        self.purple_rect_border.center = self.purple_rect.center
+        self.purple.fill(purple)
+
+        self.orange = pygame.Surface((30, 30))
+        self.orange_rect = self.orange.get_rect()
+        self.orange_rect.topleft = (775, 20)
+        self.orange_border = pygame.Surface((32, 32))
+        self.orange_rect_border = self.orange_border.get_rect()
+        self.orange_rect_border.center = self.orange_rect.center
+        self.orange.fill(orange)
+
     def output(self):
         nav_screen.blit(self.red, self.red_rect.topleft)
         pygame.draw.rect(nav_screen, black, self.red_rect_border, 2)
@@ -59,6 +86,16 @@ class Palette:
 
         nav_screen.blit(self.green, self.green_rect.topleft)
         pygame.draw.rect(nav_screen, black, self.green_rect_border, 2)
+
+        nav_screen.blit(self.yellow, self.yellow_rect.topleft)
+        pygame.draw.rect(nav_screen, black, self.yellow_rect_border, 2)
+
+        nav_screen.blit(self.orange, self.orange_rect.topleft)
+        pygame.draw.rect(nav_screen, black, self.orange_rect_border, 2)
+
+        nav_screen.blit(self.purple, self.purple_rect.topleft)
+        pygame.draw.rect(nav_screen, black, self.purple_rect_border, 2)
+        
 
 class Selection:
     def __init__(self):
@@ -84,7 +121,9 @@ class Selection:
         self.rhombus_icon_rect.topleft = (375, 20)
         
         self.choice = ["brush", "rectangle", "circle", "rhombus", "right-triangle", "equilateral-triangle"] 
-        self.color_choice = [black, red, green, blue, yellow] 
+        self.color_choice = [black, red, green, blue, yellow, orange, purple] 
+
+        self.filling = 2
 
         self.colorID = 0
         self.shapeID = 0
@@ -101,6 +140,15 @@ class Selection:
         elif palette.green_rect.collidepoint(self.pos) and self.press[0] == 1:
             print("ITS GREEN!")
             self.colorID = 2
+        elif palette.yellow_rect.collidepoint(self.pos) and self.press[0] == 1:
+            print("ITS YELLOW!")
+            self.colorID = 4
+        elif palette.orange_rect.collidepoint(self.pos) and self.press[0] == 1:
+            print("ITS ORANGE!")
+            self.colorID = 5   
+        elif palette.purple_rect.collidepoint(self.pos) and self.press[0] == 1:
+            print("ITS PURPLE!")
+            self.colorID = 6
 
     def click_to_shape(self):
         self.pos = pygame.mouse.get_pos()
