@@ -8,7 +8,7 @@ WIDTH = 600
 HEIGHT = 600
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-GameOver = pygame.image.load('Lab8\\images\\gameover.jpg')
+GameOver = pygame.image.load('images\\gameover.jpg')
 
 running = True
 clock = pygame.time.Clock()

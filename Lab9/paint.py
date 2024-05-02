@@ -214,7 +214,7 @@ class Rectangle:
         if self.LMBpressed:
             work_screen.blit(self.layer, (0, 0))
             pygame.draw.rect(work_screen, self.color, self.create_rect(self.prevpos[0], self.prevpos[1], self.currpos[0], self.currpos[1]), 2)
-
+            
 class Circle:
     def __init__(self):
         self.prevpos = (0, 0)
@@ -299,6 +299,7 @@ while running:
 
         if event.type == pygame.MOUSEMOTION:
             brush.currpos = event.pos
+            print(brush.currpos)
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             brush.LMBpressed = True
             brush.prevpos = event.pos
